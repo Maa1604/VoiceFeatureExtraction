@@ -5,7 +5,7 @@ function initFeatureRail() {
   const rail = document.createElement('div');
   rail.className = 'feature-rail';
   rail.setAttribute('aria-label', 'Vector de 85 características recogidas durante el recorrido');
-  rail.innerHTML = '<button class="rail-toggle" type="button" aria-expanded="false">Vector <span>0/85</span></button><div class="rail-content"><p class="eyebrow">TU VECTOR</p><strong class="rail-count">0 / 85</strong><p class="rail-description">Baja para recoger; sube para devolver las features.</p><div class="rail-slots"></div><output class="rail-detail" aria-live="polite">85 huecos por completar.</output></div>';
+  rail.innerHTML = '<button class="rail-toggle" type="button" aria-expanded="false">Vector <span>0/85</span></button><div class="rail-content"><p class="eyebrow">Tu vector de características</p><strong class="rail-count">0 / 85</strong><div class="rail-slots"></div><output class="rail-detail" aria-live="polite"></output></div>';
   document.querySelector('.layout').append(rail);
   document.body.classList.add('has-feature-rail');
   const grid = rail.querySelector('.rail-slots');
@@ -53,8 +53,7 @@ function initFeatureRail() {
     });
     rail.querySelector('.rail-count').textContent = `${filled.size} / 85`;
     toggle.querySelector('span').textContent = `${filled.size}/85`;
-    detail.textContent = filled.size === 85 ? 'Vector completo: 85 características recogidas.'
-      : `${filled.size} características recogidas · ${85 - filled.size} huecos pendientes.`;
+    detail.textContent = '';
   }
   function empty(indices) {
     indices.forEach(index => {
